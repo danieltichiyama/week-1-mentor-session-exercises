@@ -1,10 +1,23 @@
 /** Function: firstReverse
  * The function will take the str parameter being passed in and
  * return the string in reversed order
- * @param {string} str
+* @param {string} str
  * @return {string} reversed
  * ie: "cat" => "tac"
  */
+
+ function firstReverse(str){
+    if (typeof str !== 'string'){
+        return null;}
+    var strArr = str.split("");
+    var revStrArr = [];
+    for (i = strArr.length-1;i>=0;i--){
+    revStrArr.push (strArr[i]);
+    }
+    reverseString = revStrArr.join("");
+    console.log (reverseString);
+    return reverseString;
+}
 
  /** Function: alphaOrder
  * The function will take the str parameter being passed in and
@@ -14,6 +27,15 @@
  * ie: "cake" => "acek"
  */
 
+function alphaOrder (str){
+    if (typeof str !=='string'){
+        return null
+    }
+    var strArr = str.split ("");
+    var alphabetized = strArr.sort().join("");
+    return alphabetized;
+}
+
  /** Function: vowelCount
  * The function will take the num parameter being passed in and
  * return the number of vowels in the string
@@ -21,6 +43,25 @@
  * @return {number} count of vowels
  * ie: "oreo" => 3
  */
+
+function vowelCount (num){
+    if(typeof num !== 'string'){
+        return null;
+    }
+    count = 0;
+    var vowels = 'aeiou'
+    for (i=0;i<num.length;i++){
+        // console.log ('pass'+i)
+        // console.log(vowels.indexOf(num[i]));
+        if (vowels.indexOf(num[i])==-1){
+            count = count;
+        }else{
+            count +=1;
+        }
+    }
+    console.log(num);
+    return count;
+}
 
  /** Function: timeConvert
  * The function will take the str parameter representing the amount of minutes being passed in and
@@ -31,6 +72,20 @@
  * ie: 68 => 1:8
  */
 
+function timeConvert (num){
+    if (typeof num !== 'number'){
+        return null;
+    }
+    var hours = Math.floor(num/60);
+    var minutes = num%60;
+    console.log (num);
+    console.log (hours);
+    console.log (minutes);
+    timeString = hours + ":" + minutes;
+    console.log (timeString);
+    return timeString;
+}
+
  /** Function: repeatString
  * The function will take in two parameters and repeat a given string (first argument)
  * num times (second argument). Return an empty string if num is a negative number
@@ -40,6 +95,25 @@
  * i.e repeatString("money", 3) => "moneymoneymoney".
  */
 
+function repeatedString (str, times){
+    if (typeof str !== 'string' || typeof times !== "number"){
+        return null;
+    }
+    if (times <0){
+        return "";
+    }
+    var arr=[];
+
+    for (i=0;i<times;i++){
+        arr.push (str);
+    }
+
+    // console.log(arr);
+
+    repeatedString = arr.join("");
+
+    return repeatedString;
+}
 
 /**
  * Below here we see a module.exports which is set to an object with a bunch of keys.
@@ -56,9 +130,9 @@
  */
 
 module.exports = {
-    firstReverse: null,
-    alphaOrder: null,
-    vowelCount: null,
-    timeConvert: null,
-    repeatString: null
+    firstReverse: firstReverse,
+    alphaOrder: alphaOrder,
+    vowelCount: vowelCount,
+    timeConvert: timeConvert,
+    repeatString: repeatedString
 }
